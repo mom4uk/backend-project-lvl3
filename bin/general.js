@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { createRequire } from 'module';
-import loadPage from '../index';
+import loadPage from '../index.js';
 
 const require = createRequire(import.meta.url);
 const { program } = require('commander');

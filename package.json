@@ -1,5 +1,5 @@
 {
-  "name": "@hexlet/code",
+  "name": "page-loader",
   "version": "1.0.0",
   "description": "Third project",
   "main": "index.js",
@@ -10,6 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/mom4uk/backend-project-lvl3.git"
   },
+  "engines": {
+    "node": ">=14"
+  },
+  "type": "module",
   "author": "",
   "license": "ISC",
   "bugs": {

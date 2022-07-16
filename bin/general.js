@@ -12,6 +12,6 @@ program
   .option('--output [dir]', 'output path to download file', '/home/user/current-dir')
   .action((filepath, url) => {
     console.log(loadPage(filepath, url));
-  })
+  });
 
 program.parse(process.argv);

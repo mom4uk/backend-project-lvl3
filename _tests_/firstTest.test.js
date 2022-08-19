@@ -4,13 +4,10 @@ import os from 'os';
 import nock from 'nock';
 import loadPage from '../index.js';
 
-const mockResult = '';
-let tempPath;
+const mockResult = await fs.readFile(`${process.cwd()}/__fixtures__/ru-hexlet-io-courses.html`, 'utf-8', () => {});
+let x;
 beforeEach(async () => {
-  await fs.mkdtemp(path.join(os.tmpdir(), 'page-loader-'), async (err, folder) => {
-    tempPath = folder;
-    // console.log(folder);
-  });
+  await fs.mkdtemp(path.join(os.tmpdir(), 'page-loader-'), () => {});
 });
 const url = 'https://ru.hexlet.io/courses';
 
@@ -19,13 +16,9 @@ const url = 'https://ru.hexlet.io/courses';
 //   .reply(200, mockResult);
 
 test('some check', async () => {
-  // console.log(tempPath);
-  console.log(`${process.cwd()}/__fixtures__/ru-hexlet-io-courses.html`);
-  await loadPage(tempPath, url);
+  console.log(x);
+  await loadPage(url);
   const downloadData = await fs.readFile(`${tempPath}/ru-hexlet-io-courses.html`, 'utf-8', () => {});
-  const fixtureData = await fs.readFile(`${process.cwd()}/__fixtures__/ru-hexlet-io-courses.html`, 'utf-8', (err, data) => {
-    console.log(data);
-    return data;
-  });
+  const fixtureData = await fs.readFile(`${process.cwd()}/__fixtures__/ru-hexlet-io-courses.html`, 'utf-8', () => {});
   expect(downloadData).toEqual(fixtureData);
 });
